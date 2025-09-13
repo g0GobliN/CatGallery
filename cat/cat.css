@@ -1,0 +1,320 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --light-bg: #f4f4f4;
+  --dark-bg: #222;
+  --font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Header & Navigation --- */
+
+header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 1002; /* Ensure it's above the menu */
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  color: var(--secondary-color);
+}
+
+/* --- Hero Section --- */
+
+.hero {
+  background: var(--light-bg);
+  color: var(--text-color);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+/* --- General Sections --- */
+
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+}
+
+/* --- Gallery Section --- */
+
+.gallery {
+  background-color: var(--light-bg);
+}
+
+.cats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.cat-item {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.cat-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Contact Section --- */
+
+.contact {
+  background-color: #fff;
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  background-color: var(--light-bg);
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.contact-item h3 {
+  color: var(--secondary-color);
+  margin-top: 0;
+}
+
+/* --- Footer --- */
+
+footer {
+  background-color: var(--dark-bg);
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* --- Mobile Responsive Navigation --- */
+
+/* Hide checkbox and label by default */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none; /* Hidden on large screens */
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  z-index: 1002; /* Ensure it's above the menu */
+  margin-top: 6%;
+}
+
+/* Style the three lines of the hamburger menu */
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: #fff;
+  height: 3px;
+  width: 100%;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.nav-toggle-label span::before {
+  content: '';
+  top: -8px;
+}
+
+.nav-toggle-label span::after {
+  content: '';
+  top: 8px;
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.2rem;
+    z-index: 1002;
+  }
+
+  /* Make the menu go vertical and hide it by default */
+  .nav-menu {
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    background-color: var(--primary-color);
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    transform: translateY(-100%);
+   opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .nav-menu li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-toggle-label {
+    display: block;
+  }
+
+  /* When the checkbox is checked, show the menu */
+  .nav-toggle:checked ~ .nav-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Animate the hamburger icon into a cross when the menu is open */
+  .nav-toggle:checked + .nav-toggle-label span {
+    transform: rotate(45deg);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span::before {
+    transform: rotate(90deg) translate(8px);
+    opacity: 0;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span::after {
+    transform: rotate(90deg) translate(8px);
+    opacity: 0;
+  }
+}
+
+/* Revert to desktop styles on larger screens */
+@media (min-width: 769px) {
+  .nav-menu {
+    display: flex;
+    transform: none; /* Reset transform for desktop */
+    position: static;
+    background-color: transparent;
+  }
+}
